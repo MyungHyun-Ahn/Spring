@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+">
+
+
+    <context:annotation-config />
+    <!-- Exam exam = new NewLecExam(); -->
+    <!-- <bean id="exam" class="spring.di.entity.NewLecExam">
+        <constructor-arg name="kor" type="int" value="10"/>
+        <constructor-arg name="eng" type="int" value="40"/>
+        <constructor-arg name="math" type="int" value="20"/>
+        <constructor-arg name="com" type="int" value="30"/>
+    </bean> -->
+    <bean id="exam1" class="spring.di.entity.NewLecExam" p:kor="10" p:eng="40" p:math="30" p:com="20"/>
+    <bean id="exam2" class="spring.di.entity.NewLecExam" p:kor="10" p:eng="10" p:math="10" p:com="10"/>
+    <!-- ExamConsole console = new GridExamConsole(); -->
+    <bean id="console" class="spring.di.ui.InlineExamConsole">
+        <!-- console.setExam(exam); -->
+        <!-- <property name="exam" ref="exam"/> -->
+    </bean>
+
+<!--
+<util:list id="exams" list-class="java.util.ArrayList">
+        <bean class="spring.di.entity.NewLecExam" p:kor="1" p:eng="1" p:math="1" p:com="1"/>
+        <ref bean="exam"/>
+    </util:list>
+-->
+    <!--<bean id="exams" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <bean class="spring.di.entity.NewLecExam" p:kor="1" p:eng="1" p:math="1" p:com="1"/>
+                <ref bean="exam"/>
+            </list>
+        </constructor-arg>
+    </bean>-->
+</beans>
