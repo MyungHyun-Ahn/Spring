@@ -21,8 +21,8 @@
         <constructor-arg name="math" type="int" value="20"/>
         <constructor-arg name="com" type="int" value="30"/>
     </bean> -->
-    <bean id="exam1" class="spring.di.entity.NewLecExam" p:kor="10" p:eng="40" p:math="30" p:com="20"/>
-    <bean id="exam2" class="spring.di.entity.NewLecExam" p:kor="10" p:eng="10" p:math="10" p:com="10"/>
+    <!--<bean id="exam1" class="spring.di.entity.NewLecExam" p:kor="10" p:eng="40" p:math="30" p:com="20"/>
+    <bean id="exam2" class="spring.di.entity.NewLecExam" p:kor="10" p:eng="10" p:math="10" p:com="10"/>-->
     <!-- ExamConsole console = new GridExamConsole(); -->
     <bean id="console" class="spring.di.ui.InlineExamConsole">
         <!-- console.setExam(exam); -->
