@@ -1,5 +1,9 @@
 package spring.di.entity;
 
+import org.springframework.context.annotation.Conditional;
+import org.springframework.stereotype.Component;
+
+@Component
 public class NewLecExam implements Exam {
 
     private int kor;

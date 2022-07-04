@@ -2,11 +2,13 @@ package spring.di.ui;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import spring.di.entity.Exam;
 
+@Component("console")
 public class InlineExamConsole implements ExamConsole {
     @Autowired(required = false)
-    @Qualifier("exam1")
+    // @Qualifier("exam1")
     private Exam exam;
 
     public InlineExamConsole() { // 기본 생성자가 없을 시 오류 (생성자를 모두 없애면 컴파일러가 생성자 자동 생성)
