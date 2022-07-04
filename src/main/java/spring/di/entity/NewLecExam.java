@@ -1,14 +1,20 @@
 package spring.di.entity;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service // Component 와 같지만 의미를 가지고 있음 @Controller @Service @Repository
 public class NewLecExam implements Exam {
 
+    @Value("10") // 기본값 설정
     private int kor;
+    @Value("10")
     private int eng;
+    @Value("10")
     private int math;
+    @Value("10")
     private int com;
 
     public NewLecExam() {

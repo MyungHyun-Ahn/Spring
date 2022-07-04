@@ -1,0 +1,93 @@
+Spring
+
+Java EE -> Spring
+분산형, 기업형 응용 프로그램
+개발을 위한 API
+결합력을 낮추는 DI, DB Transaction 처리,
+로그처리,,,
+
+Java SE
+일반적인 로컬 응용 프로그램
+개발을 위한 API
+파일 I/O, 콘솔 I/O, 윈도우 I/O,
+네트워크 I/O, Thread, ....
+
+Java 위에 Java EE를 얹거나 Spring을 얹어서 웹 개발
+
+세가지를 공부
+1. MVC -> DI -> 느슨한 결합력과 인터페이스
+2. 트랜잭션 -> AOP
+3. 인증과 권한 -> Servlet Filter
+
+느슨한 결합력과 인터페이스
+UI -> Service -> Dao -> 
+Dao 의 소스코드를 수정 ->  Service의 소스코드도 수정해야함 : 결합력이 높다.
+자료형을 interface로 사용
+private B b = new B2();
+b.getDate();
+-> 객체 생성과 조립을 위한 외부 설정 XML, Annotation
+
+DI(Dependency Injection) 종속성 주입(?) 부품 조립(ok)
+부품을 조립해준다.
+Composition has a 일체형
+class A {
+    private B b;
+    public A() {
+        b = new B();
+    }
+}
+
+Association has a 조립형 : 결합력이 더 낮아지고 부품을 더 쉽게 갈아 끼울 수 있다.
+class A {
+    private B b;
+    public void setB(B b) {
+        this.b = b;
+    }
+}
+
+DI
+B b = new B(); - Dependency
+A a = new A(b); - Construction Injection : 생성자 조립형
+a.setB(b); - Setter Injection : 세터 조립형
+
+IoC Container
+XML, Annotation : 주문서를 작성
+작은 부품 -> 큰 부품 만들고 결합
+역순 IoC(Inversion of Control) Container
+
+스프링에 주문서를 작성
+설정파일 setting.xml
+
+ApplicationContext 생성하기
+ApplicationContext = new ClassPathXmlApplicationContext("config.xml");
+
+ApplicationContext 종류 : 지시서 파일의 위치를 어떻게 넘겨주냐에 따라 바뀜
+ClassPathXmlApplicationContext : 어플리케이션 루트로부터 지정
+FileSystemXmlApplicationContext : 절대경로
+XmlWebApplicationContext : Web의 URL
+AnnotationConfigApplicationContext : Annotation으로 둠
+
+값 형식 속성에 값 설정하기
+
+어노테이션
+
+@Autowired
+@Qualifier("exam1")
+
+@Component 어노테이션
+@Component 지정 @Value 초기값 설정
+
+처리기의 명령
+@Component
+@Controller @Service @Repository // 의미론적 부여 - 의미는 MVC 패턴에서 학습
+@RequestMapping @GetMapping ...
+
+
+
+
+
+
+
+
+
+
