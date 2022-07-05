@@ -1,0 +1,27 @@
+AOP
+
+AOP 방법론이란?
+Aspect Oriented Programming
+관점 지향 프로그래밍
+객체 지향 프로그래밍보다 큰 개념
+사용자 -> 주 업무 로직 <- 개발자, 운영자
+
+Primary(Core) Concern과 Cross-cutting Concern
+로그처리, 보안처리, 트랜잭션처리
+관점이 다른 코드를 쉽게 넣었다 뺏다할 수 있게 하는 방법론
+
+구현 방식 이해하기
+
+public class NewlecExam implements Exam {
+    public int total() {
+        // ex) 수행 시간 테스트 위해 코드 삽입 -> Cross-cutting Concern
+
+        int result = kor + eng + math + com; // -> Core Concern 주 업무로직
+
+        // ex) 수행 시간 테스트 위해 코드 삽입 -> Cross-cutting Concern
+        return result;
+    }
+}
+
+1. 주 업무로직 분리
+2. proxy
