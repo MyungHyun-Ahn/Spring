@@ -52,14 +52,17 @@
     <!--            AOP 관련 코드              -->
     <bean id="target" class="spring.aop.entity.NewLecExam" p:kor="1" p:eng="1" p:math="1" p:com="1"/>
     <bean id="LogAroundAdvice" class="spring.aop.advice.LogAroundAdvice" />
+    <bean id="LogBeforeAdvice" class="spring.aop.advice.LogBeforeAdvice" />
     <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target" />
         <property name="interceptorNames">
             <list>
                 <value>LogAroundAdvice</value>
+                <value>LogBeforeAdvice</value>
             </list>
         </property>
     </bean>
+
 
 
 
