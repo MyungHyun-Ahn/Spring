@@ -26,3 +26,15 @@ public class NewlecExam implements Exam {
 1. 주 업무로직 분리
 2. proxy 작성
 
+
+
+포인트 컷 Pointcuts
+원하는 메소드만 컷하는 것
+
+조인 포인트 JoinPoint
+연결해야할 메소드 target으로 하면 모든 메소드를 조인포인트로 만듬
+
+위빙 weaving
+뜨개질하듯이 연결하는 방식
+
+간소화된 Advisor
