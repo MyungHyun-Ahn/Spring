@@ -1,4 +1,4 @@
-package spring.di;
+package spring.aop;
 
 import spring.di.entity.Exam;
 import spring.di.entity.NewLecExam;
@@ -32,7 +32,7 @@ public class ProxyProgram {
                 }
             });
             int result = examProxy.total();
-            System.out.println("total is" + result);
+            System.out.println("total is " + result);
 
     }
 }
