@@ -11,10 +11,9 @@
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd
 ">
-
-
+<!--            DI 관련 코드              -->
     <!--<context:annotation-config /> context:component-scan 사용하면 자동으로 Autowired 진행-->
-    <context:component-scan base-package="spring.di.ui, spring.di.entity" />
+<!--    <context:component-scan base-package="spring.di.ui, spring.di.entity" />-->
     <!-- Exam exam = new NewLecExam(); -->
     <!-- <bean id="exam" class="spring.di.entity.NewLecExam">
         <constructor-arg name="kor" type="int" value="10"/>
@@ -44,4 +43,25 @@
             </list>
         </constructor-arg>
     </bean>-->
+
+
+
+
+
+
+    <!--            AOP 관련 코드              -->
+    <bean id="target" class="spring.aop.entity.NewLecExam" p:kor="1" p:eng="1" p:math="1" p:com="1"/>
+    <bean id="LogAroundAdvice" class="spring.aop.advice.LogAroundAdvice" />
+    <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="target" />
+        <property name="interceptorNames">
+            <list>
+                <value>LogAroundAdvice</value>
+            </list>
+        </property>
+    </bean>
+
+
+
+
 </beans>
