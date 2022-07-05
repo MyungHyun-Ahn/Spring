@@ -24,4 +24,5 @@ public class NewlecExam implements Exam {
 }
 
 1. 주 업무로직 분리
-2. proxy
+2. proxy 작성
+
