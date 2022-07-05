@@ -82,8 +82,35 @@ AnnotationConfigApplicationContext : Annotation으로 둠
 @Controller @Service @Repository // 의미론적 부여 - 의미는 MVC 패턴에서 학습
 @RequestMapping @GetMapping ...
 
+XML Configuration
+Java Configuration
 
+XML 설정파일을 지우고 자바 클래스로 바꿈
+설정을 위한 자바 클래스라는걸 알려주기 위해
+@Configuration 작성
 
+@ComponentScan("spring.di.ui")
+@Configuration
+public class NewlecAppConfig {
+    @Bean
+    public Exam exam() { // exam은 이름이다. id="exam"
+        return new NewlecExam();
+    }
+}
+
+클래스 설정 방법
+설정방법 1
+ApplicationContext ctx = new AnnotationConfigApplicationContext(NewlecAppConfig.class);
+ExamConsole console = (ExamConsole) context.getBean("console");
+console.print();
+
+설정방법 2
+AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+//ctx.register(AppConfig.class, OtherConfig.class);
+ctx.register(NewlecAppConfig.class); // 여러개의 설정파일을 설정 가능
+ctx.refresh();
+ExamConsole console = (ExamConsole) context.getBean("console");
+console.print();
 
 
 
