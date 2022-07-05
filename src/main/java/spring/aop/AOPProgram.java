@@ -1,15 +1,9 @@
 package spring.aop;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.aop.entity.Exam;
-import spring.aop.entity.NewLecExam;
-import spring.di.NewlecDIConfig;
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
 
 public class AOPProgram {
     public static void main(String[] args) {
@@ -22,6 +16,7 @@ public class AOPProgram {
 
         System.out.printf("total is %d\n", proxy.total());
         System.out.printf("avg is %f\n", proxy.avg());
+
         /*
         Exam exam = new NewLecExam(1, 1, 1, 1);
 
